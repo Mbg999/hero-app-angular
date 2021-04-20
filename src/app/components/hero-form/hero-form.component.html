@@ -1,0 +1,105 @@
+<div class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none px-4 justify-center flex">
+  <div class="relative my-6 mx-auto w-full md:w-3/6 h-full md:h-1/4">
+    <!-- MODAL CONTENT -->
+    <div class="border-0 rounded-lg shadow-lg relative flex flex-col bg-white outline-none focus:outline-none">
+      <!-- HEADER -->
+      <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+        <!-- TITLE -->
+        <h3 class="text-2xl font-bold">
+          {{ hero.id ? 'Actualizar' : 'Crear' }} super héroe
+        </h3>
+        <!-- /TITLE -->
+        <!-- CLOSE BTN -->
+        <button class="p-1 ml-auto border-0 float-right outline-none focus:outline-none"
+        (click)="close.emit()">
+          <svg class="h-6 w-6 fill-current text-grey-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <!-- /CLOSE BTN -->
+      </div>
+      <!-- /HEADER -->
+      <!-- BODY -->
+      <div class="relative p-6 flex-auto">
+        <form [formGroup]="form" (submit)="submit()" novalidate>
+          <!-- ID (update only) -->
+          <div *ngIf="hero.id" class="mb-4 mt-6">
+            <label for="id"
+            class="block text-gray-700 text-sm font-semibold mb-2">
+              Nombre
+            </label>
+            <input id="id"
+              type="text"
+              class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10"
+              [value]="hero.id"
+              disabled>
+          </div>
+          <!-- /ID (update only) -->
+          <!-- NAME -->
+          <div class="mb-4 mt-6">
+            <label for="name"
+            class="block text-gray-700 text-sm font-semibold mb-2">
+              Nombre
+            </label>
+            <input id="name"
+              type="text"
+              class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10"
+              placeholder="Batman"
+              formControlName="name"
+              autocomplete="off">
+              <app-validation-messages [control]="form.controls.name"></app-validation-messages>
+          </div>
+          <!-- /NAME -->
+          <!-- DESCRIPTION -->
+          <div class="mb-6 mt-6">
+            <label for="description"
+              class="block text-gray-700 text-sm font-semibold mb-2">
+              Descripción
+            </label>
+            <textarea id="description" rows="4"
+              placeholder="Batman es la identidad secreta de Bruce Wayne, un empresario multimillonario, galán y filántropo."
+              class="text-sm bg-gray-200 appearance-none rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline"
+              autocomplete="off"
+              formControlName="description"></textarea>
+              <app-validation-messages [control]="form.controls.description"></app-validation-messages>
+          </div>
+          <!-- /DESCRIPTION -->
+          <!-- IMAGE -->
+          <div class="mb-4 mt-6">
+            <label for="image"
+            class="block text-gray-700 text-sm font-semibold mb-2">
+              Imagen
+            </label>
+            <input id="image"
+              type="text"
+              class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10"
+              placeholder="http://your-image.com"
+              formControlName="image"
+              autocomplete="off">
+            <small>Tamaño recomendado: 300x300</small>
+            <app-validation-messages [control]="form.controls.image"></app-validation-messages>
+          </div>
+          <!-- /IMAGE -->
+          <!-- IMAGE PREVIEW -->
+          <div class="mb-4 mt-6">
+            <img [src]="form.controls.image.value | img" alt="Imagen del super heroe" class="w-3/6 mx-auto">
+          </div>
+          <!-- /IMAGE PREVIEW -->
+          <!-- SUBMIT BTN -->
+          <div class="flex w-full mt-8">
+            <button type="submit" [disabled]="form.invalid" [class.opacity-70]="form.invalid"
+              class="w-full bg-gray-800 hover:bg-grey-900 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline h-10">
+              {{ hero.id ? 'Actualizar' : 'Crear'}}
+            </button>
+          </div>
+          <!-- /SUBMIT BTN -->
+        </form>
+      </div>
+      <!-- /BODY -->
+    </div>
+    <!-- /MODAL CONTENT -->
+  </div>
+</div>
+<!-- BACK OVERLAY -->
+<div class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+<!-- /BACK OVERLAY -->
