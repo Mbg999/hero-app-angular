@@ -20,7 +20,7 @@ import { PaginationComponent } from './components/shareds/pagination/pagination.
 import { ImgPipe } from './pipes/img.pipe';
 
 // DIRECTIVES
-import { CapitalizeDirective } from './directives/capitalize/capitalize.directive';
+import { ToUpperCaseDirective } from './directives/to-upper-case/to-upper-case.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { CapitalizeDirective } from './directives/capitalize/capitalize.directiv
     HerosContainerComponent,
     HerosGridComponent,
     PaginationComponent,
-    CapitalizeDirective
+    ToUpperCaseDirective
   ],
   imports: [
     BrowserModule,
