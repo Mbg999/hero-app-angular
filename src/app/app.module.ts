@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 // MODULES
 import { AppRoutingModule } from './app-routing.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 // COMPONENTS
 import { AppComponent } from './app.component';
@@ -33,7 +34,8 @@ import { PaginationComponent } from './components/shareds/pagination/pagination.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

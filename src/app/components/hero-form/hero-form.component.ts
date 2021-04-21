@@ -25,8 +25,6 @@ export class HeroFormComponent implements OnInit {
       description: ''
     };
     this.createForm();
-    console.log('ee');
-    console.log(this.hero);
   }
 
   private createForm(){

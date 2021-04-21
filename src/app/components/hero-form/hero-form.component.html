@@ -1,5 +1,5 @@
 <div class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none px-4 justify-center flex">
-  <div class="relative my-6 mx-auto w-full md:w-3/6 h-full md:h-1/4">
+  <div class="relative my-6 mx-auto w-full md:w-3/6 md:h-3/4">
     <!-- MODAL CONTENT -->
     <div class="border-0 rounded-lg shadow-lg relative flex flex-col bg-white outline-none focus:outline-none">
       <!-- HEADER -->
@@ -26,11 +26,11 @@
           <div *ngIf="hero.id" class="mb-4 mt-6">
             <label for="id"
             class="block text-gray-700 text-sm font-semibold mb-2">
-              Nombre
+              ID
             </label>
             <input id="id"
               type="text"
-              class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10"
+              class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-600 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10"
               [value]="hero.id"
               disabled>
           </div>
@@ -82,7 +82,7 @@
           <!-- /IMAGE -->
           <!-- IMAGE PREVIEW -->
           <div class="mb-4 mt-6">
-            <img [src]="form.controls.image.value | img" alt="Imagen del super heroe" class="w-3/6 mx-auto">
+            <img [src]="form.controls.image.value | img" alt="Imagen del super heroe" class="w-2/6 mx-auto">
           </div>
           <!-- /IMAGE PREVIEW -->
           <!-- SUBMIT BTN -->

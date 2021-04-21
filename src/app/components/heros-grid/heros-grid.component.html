@@ -1,7 +1,8 @@
 <div class="container my-12 mx-auto px-4 md:px-12">
   <div class="flex flex-wrap -mx-1 lg:-mx-4">
       <!-- COLUMN -->
-      <div *ngFor="let hero of heros" class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+      <div *ngFor="let hero of heros | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }"
+      class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 xl:w-1/4">
           <!-- CARD -->
           <article class="overflow-hidden rounded-lg shadow-lg">
             <!-- IMAGE -->
@@ -33,5 +34,12 @@
           <!-- /CARD -->
       </div>
       <!-- /COLUMN -->
+  </div>
+  <div class="mt-5">
+    <app-pagination
+    [length]="heros.length"
+    [itemsPerPage]="itemsPerPage"
+    [currentPage]="currentPage"
+    (changePage)="this.currentPage = $event"></app-pagination>
   </div>
 </div>

@@ -15,9 +15,6 @@
   [heros]="heros"
   (edit)="edit($event)"
   (remove)="remove($event)"></app-heros-grid>
-  <app-pagination
-  [length]="heros.length"
-  [itemsPerPage]="10"></app-pagination>
 </div>
 <ng-template #noHeros>
   <h1>No hay super héroes aún, prueba a añadir uno!</h1>

@@ -34,7 +34,6 @@ export class HeroService {
 
   public create(hero: Hero): Hero {
     hero.id = this.lastId++;
-    console.log(hero);
     this.heros.unshift(hero);
     this.saveHeros();
     return hero;
