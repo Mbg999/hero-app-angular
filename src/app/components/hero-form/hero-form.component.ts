@@ -50,7 +50,10 @@ export class HeroFormComponent implements OnInit {
   }
 
   public submit(){
-    if(this.hero) this.update.emit(this.form.value);
-    else this.create.emit(this.form.value);
+    const hero: Hero = this.form.value;
+    if(this.hero) {
+      hero.id = this.hero.id;
+      this.update.emit(hero);
+    } else this.create.emit(hero);
   }
 }
