@@ -36,7 +36,7 @@ export class HeroService {
   }
 
   public create(hero: Hero): Hero {
-    hero.id = this.lastId++;
+    hero.id = ++this.lastId;
     this.heros.unshift(hero);
     this.saveHeros();
     return hero;
@@ -69,7 +69,7 @@ export class HeroService {
     } else {
       this.heros = JSON.parse(localStorage.getItem('heros') || '[]');
     }
-    this.lastId = this.heros[0]?.id || 1;
+    this.lastId = this.heros[0]?.id || 0;
   }
 
   private saveHeros(): void {
