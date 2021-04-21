@@ -6,7 +6,7 @@
       <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
         <!-- TITLE -->
         <h3 class="text-2xl font-bold">
-          {{ hero.id ? 'Actualizar' : 'Crear' }} super héroe
+          {{ hero?.id ? 'Actualizar' : 'Crear' }} super héroe
         </h3>
         <!-- /TITLE -->
         <!-- CLOSE BTN -->
@@ -23,7 +23,7 @@
       <div class="relative p-6 flex-auto">
         <form [formGroup]="form" (submit)="submit()" novalidate>
           <!-- ID (update only) -->
-          <div *ngIf="hero.id" class="mb-4 mt-6">
+          <div *ngIf="hero?.id" class="mb-4 mt-6">
             <label for="id"
             class="block text-gray-700 text-sm font-semibold mb-2">
               ID
@@ -31,7 +31,7 @@
             <input id="id"
               type="text"
               class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-400 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10"
-              [value]="hero.id"
+              [value]="hero?.id"
               disabled>
           </div>
           <!-- /ID (update only) -->
@@ -90,7 +90,7 @@
           <div class="flex w-full mt-8">
             <button type="submit" [disabled]="form.invalid" [class.opacity-70]="form.invalid"
               class="w-full bg-gray-800 hover:bg-grey-900 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline h-10">
-              {{ hero.id ? 'Actualizar' : 'Crear'}}
+              {{ hero?.id ? 'Actualizar' : 'Crear'}}
             </button>
           </div>
           <!-- /SUBMIT BTN -->

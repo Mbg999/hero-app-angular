@@ -20,30 +20,33 @@ export class HeroFormComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    if(!this.hero) this.hero = {
-      name: '',
-      description: ''
-    };
     this.createForm();
+    if(this.hero) this.setHero();
   }
 
   private createForm(){
     this.form = this.fb.group({
-      name: [this.hero.name, [
+      name: ['', [
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(16)
       ]],
-      description: [this.hero.description, [
+      description: ['', [
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(100)
       ]],
-      image: [this.hero.image, [
+      image: ['', [
         Validators.maxLength(100),
         Validators.pattern(/^(http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)
       ]],
     });
+  }
+
+  private setHero(){
+    this.form.get('name').setValue(this.hero.name);
+    this.form.get('description').setValue(this.hero.description);
+    this.form.get('image').setValue(this.hero.image);
   }
 
   public submit(){
