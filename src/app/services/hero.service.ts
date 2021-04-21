@@ -4,6 +4,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 // INTERFACE
 import { Hero } from '../interfaces/hero';
 
+// MOCK: 10 HEROS FOR THE FIRST LOAD
+import { HEROS_MOCK } from '../mock/heros-mock';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,9 +18,9 @@ export class HeroService {
   public heros$: Observable<Hero[]>;
 
   constructor() {
-    this.loadHeros();
-    this.herosSubject = new BehaviorSubject<Hero[]>(this.heros);
+    this.herosSubject = new BehaviorSubject<Hero[]>([]);
     this.heros$ = this.herosSubject.asObservable();
+    this.loadHeros();
   }
 
   public getHeros(): Hero[] {
@@ -59,7 +62,13 @@ export class HeroService {
   }
 
   private loadHeros(): void {
-    this.heros = JSON.parse(localStorage.getItem('heros') || '[]');
+    if(localStorage.getItem('firstLoad') != '1') {
+      this.heros = HEROS_MOCK;
+      localStorage.setItem('firstLoad', '1');
+      this.saveHeros();
+    } else {
+      this.heros = JSON.parse(localStorage.getItem('heros') || '[]');
+    }
     this.lastId = this.heros[0]?.id || 1;
   }
 
