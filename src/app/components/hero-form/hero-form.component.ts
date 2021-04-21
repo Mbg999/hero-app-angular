@@ -34,10 +34,10 @@ export class HeroFormComponent implements OnInit {
       description: ['', [
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(100)
+        Validators.maxLength(1000)
       ]],
       image: ['', [
-        Validators.maxLength(100),
+        Validators.maxLength(200),
         Validators.pattern(/^(http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)
       ]],
     });
