@@ -30,7 +30,7 @@
             </label>
             <input id="id"
               type="text"
-              class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-600 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10"
+              class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-400 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10"
               [value]="hero.id"
               disabled>
           </div>
@@ -46,7 +46,8 @@
               class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10"
               placeholder="Batman"
               formControlName="name"
-              autocomplete="off">
+              autocomplete="off"
+              appCapitalize>
               <app-validation-messages [control]="form.controls.name"></app-validation-messages>
           </div>
           <!-- /NAME -->

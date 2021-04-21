@@ -14,10 +14,13 @@ import { HeroFormComponent } from './components/hero-form/hero-form.component';
 import { ValidationMessagesComponent } from './components/shareds/validation-messages/validation-messages.component';
 import { HerosContainerComponent } from './components/heros-container/heros-container.component';
 import { HerosGridComponent } from './components/heros-grid/heros-grid.component';
+import { PaginationComponent } from './components/shareds/pagination/pagination.component';
 
 // PIPES
 import { ImgPipe } from './pipes/img.pipe';
-import { PaginationComponent } from './components/shareds/pagination/pagination.component';
+
+// DIRECTIVES
+import { CapitalizeDirective } from './directives/capitalize/capitalize.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { PaginationComponent } from './components/shareds/pagination/pagination.
     ImgPipe,
     HerosContainerComponent,
     HerosGridComponent,
-    PaginationComponent
+    PaginationComponent,
+    CapitalizeDirective
   ],
   imports: [
     BrowserModule,
